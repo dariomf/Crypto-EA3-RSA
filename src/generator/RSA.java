@@ -29,8 +29,6 @@ public class RSA {
 			this.e = gen.genE(this.phi);
 			this.d = gen.genD(this.e, this.phi);
 		} while (this.d.compareTo(BigInteger.ZERO) == 0);	
-		
-		//System.out.println(Calculator.resto(Calculator.multiplicar(this.d, this.e), this.phi));
 	}
 	
 	private void phiEuler() {
@@ -63,8 +61,7 @@ public class RSA {
 		for (i = 0; i < encryptedMsj.length; i++) {
 			c = new BigInteger(encryptedMsj[i]);
 			m = c.modPow(this.d, this.n);
-			originalMsj = originalMsj.concat( String.valueOf((char) m.intValue()));
-			//System.out.print((char) m.intValue());
+			originalMsj = originalMsj.concat(String.valueOf((char) m.intValue()));
 		}
 		
 		return originalMsj;

@@ -8,7 +8,7 @@ public class Main {
 		
 		RSA rsa = new RSA(100);
 		rsa.generateKeys();
-		String encryptedMsj = rsa.encrypt("Hola Mundo");
+		String encryptedMsj = rsa.encrypt("Hola Mundo!");
 		String originalMsj = rsa.decrypt(encryptedMsj);
 		
 		System.out.println(encryptedMsj);

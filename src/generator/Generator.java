@@ -37,7 +37,6 @@ public class Generator {
 		 
 		if(b.compareTo(BigInteger.ZERO) == 0) {
 			resp[0] = a; resp[1] = BigInteger.ONE; resp[2] = BigInteger.ZERO;
-			System.out.println("-----------Entro aca ----------");
 		} else {
 			
 			BigInteger x2 = BigInteger.ONE, x1 = BigInteger.ZERO, y2 = BigInteger.ZERO, y1 = BigInteger.ONE;
@@ -76,7 +75,6 @@ public class Generator {
         
         if( mcd[0].compareTo(BigInteger.ONE) != 0)
         {
-            //System.out.println("EL INVERSO NO EXISTE");
             return BigInteger.ZERO;
         } else {
             
