@@ -1,8 +1,8 @@
-package generator;
+package cipher;
 
 import java.math.BigInteger;
 
-public class RSA {
+public class RSACipher {
 
 	private int bitLen;
 	private BigInteger p;
@@ -11,24 +11,23 @@ public class RSA {
 	private BigInteger phi;
 	private BigInteger e;
 	private BigInteger d;
+	private Generator gen;
 	
-	public RSA(int len) {
+	public RSACipher(int len) {
 		this.bitLen = len;
-	}
-	
-	public void generateKeys() {
-		
-		Generator gen = new Generator();
-		
+		 gen = new Generator();
 		this.p = gen.getRandom(this.bitLen);
 		this.q = gen.getRandom(this.bitLen);		
 		this.n = Calculator.multiplicar(this.p, this.q);
 		
+	}
+	
+	public void generateKeys() {
 		this.phiEuler();
 		do {
 			this.e = gen.genE(this.phi);
 			this.d = gen.genD(this.e, this.phi);
-		} while (this.d.compareTo(BigInteger.ZERO) == 0);	
+		} while (this.d.compareTo(BigInteger.ZERO) == 0);
 	}
 	
 	private void phiEuler() {
@@ -66,4 +65,64 @@ public class RSA {
 		
 		return originalMsj;
 	}
+
+	public int getBitLen() {
+		return bitLen;
+	}
+
+	public void setBitLen(int bitLen) {
+		this.bitLen = bitLen;
+	}
+
+	public BigInteger getP() {
+		return p;
+	}
+
+	public void setP(BigInteger p) {
+		this.p = p;
+	}
+
+	public BigInteger getQ() {
+		return q;
+	}
+
+	public void setQ(BigInteger q) {
+		this.q = q;
+	}
+
+	public BigInteger getN() {
+		return n;
+	}
+
+	public void setN(BigInteger n) {
+		this.n = n;
+	}
+
+	public BigInteger getPhi() {
+		return phi;
+	}
+
+	public void setPhi(BigInteger phi) {
+		this.phi = phi;
+	}
+
+	public BigInteger getE() {
+		return e;
+	}
+
+	public void setE(BigInteger e) {
+		this.e = e;
+	}
+
+	public BigInteger getD() {
+		return d;
+	}
+
+	public void setD(BigInteger d) {
+		this.d = d;
+	}
+	
+	
+
+	
 }

@@ -1,4 +1,4 @@
-package generator;
+package cipher;
 
 import java.math.BigInteger;
 import java.util.Random;
